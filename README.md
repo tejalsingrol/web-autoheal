@@ -40,7 +40,6 @@ az login --service-principal -u clientId -p password --tenant tenantId
 
 export ARM_SUBSCRIPTION_ID="SUBSCRIPTION_ID"
 ```
-
 3. Clone this repo:
 
    ```bash
@@ -63,7 +62,10 @@ web-autoheal/
 
 ## Deploy
 
+update the secret.tfvars with admin_password for the instance.
+
 - terraform init
+- terraform validate
 - terraform plan
 - terraform apply
 

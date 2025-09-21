@@ -151,7 +151,7 @@ resource "azurerm_monitor_autoscale_setting" "ah_vmss_scale" {
   name                = "ah_autoscale"
   resource_group_name = var.resource_group_name
   location            = var.location
-  target_resource_id  = azurerm_linux_virtual_machine_scale_set.ah.id
+  target_resource_id  = azurerm_linux_virtual_machine_scale_set.ah_vmss_scale.id
   tags = var.common_tags
 
   profile {
@@ -166,7 +166,7 @@ resource "azurerm_monitor_autoscale_setting" "ah_vmss_scale" {
     rule {
       metric_trigger {
         metric_name        = "Percentage CPU"
-        metric_resource_id = azurerm_linux_virtual_machine_scale_set.ah.id
+        metric_resource_id = azurerm_linux_virtual_machine_scale_set.ah_vmss_scale.id
         time_grain         = "PT1M"
         statistic          = "Average"
         time_window        = "PT1M"
@@ -186,7 +186,7 @@ resource "azurerm_monitor_autoscale_setting" "ah_vmss_scale" {
     rule {
       metric_trigger {
         metric_name        = "Percentage CPU"
-        metric_resource_id = azurerm_linux_virtual_machine_scale_set.ah.id
+        metric_resource_id = azurerm_linux_virtual_machine_scale_set.ah_vmss_scale.id
         time_grain         = "PT1M"
         statistic          = "Average"
         time_window        = "PT1M"
