@@ -53,7 +53,7 @@ export ARM_SUBSCRIPTION_ID="SUBSCRIPTION_ID"
 web-autoheal/
 │
 ├── providers.tf # Provider definition
-│ 
+├── variables.tf # Variable definition
 │
 └── README.md
 ```

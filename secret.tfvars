@@ -1,0 +1,1 @@
+admin_password = "<YOUR_PASSWORD>"
