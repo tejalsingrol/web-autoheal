@@ -54,6 +54,9 @@ web-autoheal/
 │
 ├── providers.tf # Provider definition
 ├── variables.tf # Variable definition
+├── secret.tf # Admin password
+├── main.tf # Main Terraform config
+├── output.tf # Output defination
 │
 └── README.md
 ```
