@@ -10,16 +10,18 @@ variable "location" {
   default     = "australiaeast"
 }
 
+variable "common_tags" {
+  type = map(string)
+  default = {
+    Environment = "Dev"
+    Project     = "Web Autoheal"
+  }
+}
+
 variable "virtual_network_name" {
   description = "Virtual network name"
   type        = string
   default     = "autohealing_vnet"
-}
-
-variable "network_security_group" {
-  description = "Network security group"
-  type        = string
-  default     = "autohealing_nsg"
 }
 
 variable "subnet_name" {
@@ -34,6 +36,11 @@ variable "subnet_prefix" {
   default     = ["10.0.1.0/24"]
 }
 
+variable "network_security_group" {
+  description = "Network security group"
+  type        = string
+  default     = "autohealing_nsg"
+}
 
 variable "public_ip_name" {
   description = "Public IP name"
@@ -50,8 +57,9 @@ variable "loadbalancer_name" {
 variable "health_probe_name" {
   description = "Health probe name"
   type        = string
-  default     = "ah_health_probe"
+  default     = "autohealing_health_probe"
 }
+
 
 variable "virtual_machine_scale_set_name" {
   description = "VMSS name"
@@ -72,10 +80,3 @@ variable "admin_password" {
   sensitive   = true
 }
 
-variable "common_tags" {
-  type = map(string)
-  default = {
-    Environment = "Dev"
-    Project     = "Web Autoheal"
-  }
-}

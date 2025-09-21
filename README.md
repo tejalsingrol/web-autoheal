@@ -1,5 +1,7 @@
 # web-autoheal
 
+I selected ***Azure*** for the implementation, as I have prior experience with the platform.
+
 This project sets up a small, highly available web tier in **Azure** using **Terraform**.   It runs NGINX on a **VM Scale Set** behind a **Load Balancer** so that if one VM goes down, another one takes over automatically.
 
 ## The goal is to demonstrate
@@ -50,19 +52,43 @@ export ARM_SUBSCRIPTION_ID="SUBSCRIPTION_ID"
 
 ```
 web-autoheal/
+│── main.tf
+│── variables.tf
+│── outputs.tf
+│── provider.tf
+│── terraform.tfvars
+│── README.md
 │
-├── providers.tf # Provider definition
-├── variables.tf # Variable definition
-├── secret.tf # Admin password
-├── main.tf # Main Terraform config
-├── output.tf # Output defination
-│
-└── README.md
-```
+├── modules/
+│   ├── network/
+│   │   ├── main.tf
+│   │   ├── variables.tf
+│   │   └── outputs.tf
+│   │
+│   ├── nsg/
+│   │   ├── main.tf
+│   │   ├── variables.tf
+│   │   └── outputs.tf
+│   │
+│   ├── lb/
+│   │   ├── main.tf
+│   │   ├── variables.tf
+│   │   └── outputs.tf
+│   │
+│   ├── vmss/
+│   │   ├── main.tf
+│   │   ├── variables.tf
+│   │   ├── outputs.tf
+│   │
+│   └── autoscale/
+│       ├── main.tf
+│       ├── variables.tf
+│       └── outputs.tf
 
+```
 ## Deploy
 
-update the secret.tfvars with admin_password for the instance.
+update the terraform.tfvars with admin_password for the instance.
 
 - terraform init
 - terraform validate
